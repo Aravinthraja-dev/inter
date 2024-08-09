@@ -1,0 +1,73 @@
+<div class="layout">
+    <!-- Sidebar with Dashboard Menu -->
+    
+    <aside class="sidebar">
+        <div ngbDropdown class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" ngbDropdownToggle data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sale</a>
+            <ul ngbDropdownMenu class="dropdown-menu">
+              <li><a ngbDropdownItem class="dropdown-item" (click)="openForm('form1')">Sale Invoice</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" (click)="openForm('form2')">Sale Order</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" (click)="openForm('form3')">Sale Chellan</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" (click)="openForm('form4')">Sale Return</a></li>
+            </ul>
+        </div>
+    </aside>
+  
+    <!-- Main Content Area -->
+    <div class="content">
+      <!-- Tabs for Forms -->
+      <div class="tabs">
+        <div 
+          class="tab" 
+          *ngFor="let form of visibleForms" 
+          [class.active]="form === activeForm"
+          (click)="setActiveForm(form)"
+        >
+          {{ form }}
+          <button class="close-tab" (click)="closeForm(form, $event)">x</button>
+        </div>
+      </div>
+  
+      <!-- Form Content -->
+      <div class="form-content" *ngIf="activeForm === 'form1'">
+        <h2>Sale Invoice</h2>
+        <form>
+          <!-- Form 1 Fields -->
+          <label for="field1">Field 1:</label>
+          <input type="text" id="field1" />
+          <!-- Add other fields as needed -->
+        </form>
+      </div>
+  
+      <div class="form-content" *ngIf="activeForm === 'form2'">
+        <h2>Sale Order</h2>
+        <form>
+          <!-- Form 2 Fields -->
+          <label for="field2">Field 2:</label>
+          <input type="text" id="field2" />
+          <!-- Add other fields as needed -->
+        </form>
+      </div>
+  
+      <div class="form-content" *ngIf="activeForm === 'form3'">
+        <h2>Sale Chellan</h2>
+        <form>
+          <!-- Form 3 Fields -->
+          <label for="field3">Field 3:</label>
+          <input type="text" id="field3" />
+          <!-- Add other fields as needed -->
+        </form>
+      </div>
+  
+      <div class="form-content" *ngIf="activeForm === 'form4'">
+        <h2>Sale Return</h2>
+        <form>
+          <!-- Form 4 Fields -->
+          <label for="field4">Field 4:</label>
+          <input type="text" id="field4" />
+          <!-- Add other fields as needed -->
+        </form>
+      </div>
+    </div>
+  </div>
+  
